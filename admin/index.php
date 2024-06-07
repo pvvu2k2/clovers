@@ -11,7 +11,7 @@ if (isset($_GET['page'])) {
             $products = new AdHomeController();
             $products->addPro();
             $products->delPro();
-            // $products->editPro();
+            $products->editPro();
             $products->products_get_all();
             break;
         case "editPro":

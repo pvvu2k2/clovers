@@ -79,13 +79,18 @@
                 <?php echo $html; ?>
                 <div>
                     <p class="name"><?= $name ?></p>
+
                     <?php
                     if ($is_bestdeal) { ?>
+
                         <p class="price"><span style="margin-right:20px; text-decoration: line-through;">$<?= $price ?></span>
                             $<?= $priceSale ?></p>
+
                     <?php } else { ?>
+
                         <p class="price">$<?= $price ?></p>
                     <?php } ?>
+
 
                 </div>
                 <a href="#" class="btn_addToCart">Add to Cart</a>

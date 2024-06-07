@@ -39,19 +39,23 @@
                     $products = $data['products'];
                     $i = 1;
                     foreach ($products as $item) {
-                        echo '<tr>
-                              <td>' . $i++ . '</td>
-                              <td><img src="../public/uploads/' . $item['img'] . '" width="80px"></td>
-                              <td>' . $item['name'] . '</td>
-                              <td>$' . $item['price'] . '</td>
-                              <td>' . $item['view'] . '</td>
-                              <td>10</td>
-                              <td class="action-icons">
-                                 <a href="index.php?page=editPro&edit=' . $item['id'] . '">Edit</a>
-                                 <a href="index.php?page=product&del=' . $item['id'] . '">Delete</a>
-                              </td>
-                           </tr>';
-                    } ?>
+                        extract($item);
+                    ?>
+
+                    <tr>
+                        <td><?= $i++ ?></td>
+                        <td><img src="../public/uploads/<?= $img ?>" width="80px"></td>
+                        <td><?= $name ?></td>
+                        <td>$<?= $price ?></td>
+                        <td><?= $view ?></td>
+                        <td>10</td>
+                        <td class="action-icons">
+                            <a href="index.php?page=editPro&edit=<?= $id ?>">Edit</a>
+                            <a href="index.php?page=product&del=<?= $id ?>"
+                                onclick="return confirm('Bạn có chắc sẽ xóa sản phẩm?')">Delete</a>
+                        </td>
+                    </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>

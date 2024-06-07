@@ -41,12 +41,13 @@ class AdHomeController extends BaseController
     public function delPro()
     {
         if (isset($_GET['del']) && ($_GET['del']) > 0) {
-            $id = $_GET['del'];
-            $data = $this->productList->getIdPro($id);
+            $del = $_GET['del'];
+            $data = $this->productList->getIdPro($del);
             // var_dump($data);
             $target_file = "../public/uploads/" . $data['img'];
             unlink($target_file);
-            $this->productList->delPro($id);
+            $this->productList->delPro($del);
+            header("Location: index.php?page=product");
         }
     }
 
@@ -62,22 +63,30 @@ class AdHomeController extends BaseController
     public function editPro()
     {
         if (isset($_POST['editProduct']) && ($_POST['editProduct']) > 0) {
-            $name = $_POST['name'];
-            $price = $_POST['price'];
-            $idcate = $_POST['idcate'];
-            $img = $_FILES['img']['name'];
-            $img_old = $_POST['image_old'];
-            $id = $_POST['idcate'];
-            if ($img != "") {
-                $img = $img_old;
-            } else {
-                $target_file = "../public/uploads/" . basename($img);
+            $data = [];
+            $data['id'] = $_POST['idpro'];
+            $data['name'] = $_POST['name'];
+            $data['price'] = $_POST['price'];
+            $data['idcate'] = $_POST['idcate'];
+            $data['img_old'] = $_POST['image_old'];
+
+            if ($_FILES['img']['name'] != "") {
+                $data['img'] = $_FILES['img']['name'];
+                $target_file = "../public/uploads/" . $data['img'];
                 move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
-                // $file_old = "../public/uploads/" . $img_old;
-                // unlink($file_old);
+
+                // $file_old = "../public/uploads/" . $data['img_old'];
+                // if (file_exists($file_old)) {
+                //     unlink($file_old);
+                // }
+
+            } else {
+                $data['img'] = $data['img_old'];
             }
+
+            $this->productList->updatePro($data);
+            echo '<script>location.href="index.php?page=product"</script>';
         }
-        $this->productList->updatePro($id, $name, $img, $price, $idcate);
     }
 
     public function products_get_all()

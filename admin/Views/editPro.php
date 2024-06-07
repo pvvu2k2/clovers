@@ -19,6 +19,6 @@
     <input type="file" name="img">
     <img src="../public/uploads/<?= $pro_detail['img'] ?>">
     <input type="hidden" name="image_old" value="<?= $pro_detail['img'] ?>">
-    <input type="hidden" name="idcate" value="<?= $pro_detail['id'] ?>">
+    <input type="hidden" name="idpro" value="<?= $pro_detail['id'] ?>">
     <input type="submit" name="editProduct" value="Sửa">
 </form>
