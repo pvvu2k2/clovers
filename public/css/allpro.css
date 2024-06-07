@@ -1,0 +1,83 @@
+section.all-id-pro {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+section.all-id-pro section.filter {
+    width: 20%;
+}
+
+section.all-id-pro section.filter p {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+section.all-id-pro section.filter section {
+    border-top: 1px solid #000;
+}
+
+section.all-id-pro section.filter section ul {
+    list-style: none;
+}
+
+section.all-id-pro section.filter section ul li {
+    margin-top: 10px;
+}
+
+section.all-id-pro section.filter section ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+}
+
+
+section.all-id-pro section.lists {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 900px;
+}
+
+section.all-id-pro section.lists section {
+    width: 20%;
+    height: 400px;
+    border: 1px solid #000;
+    text-align: center;
+    margin: 12px;
+    position: relative;
+}
+
+section.all-id-pro section.lists section img {
+    width: 100%;
+}
+
+section.all-id-pro section.lists section p {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+section.all-id-pro section.lists section p.name {
+    height: 36px;
+}
+
+section.all-id-pro section.lists section p.price {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+section.all-id-pro section.lists section a.btn_addToCart {
+    text-decoration: none;
+    color: #ffffff;
+    background: #000;
+    padding: 10px 20px 10px 20px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+section.all-id-pro section.lists section a.btn_addToCart:hover {
+    opacity: 0.7;
+}
