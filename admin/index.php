@@ -23,8 +23,15 @@ if (isset($_GET['page'])) {
             $users->users_get_all();
             break;
         case "category":
-            $categories = new AdHomeController();
+            $categories = new AdCategoryController();
+            $categories->addCate();
+            $categories->delCate();
+            $categories->editCate();
             $categories->cate_get_all();
+            break;
+        case "editCate":
+            $categories = new AdCategoryController();
+            $categories->viewEditCate();
             break;
         default:
             $home = new AdHomeController();

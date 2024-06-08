@@ -10,8 +10,7 @@ class AdHomeController extends BaseController
     function __construct()
     {
         $this->productList = new AdProductModel();
-        $this->category = new AdProductModel();
-        $this->insertPro = new AdProductModel();
+        $this->category = new AdCategoryModel();
         $this->users = new AdProductModel();
     }
     public function view()
@@ -35,7 +34,7 @@ class AdHomeController extends BaseController
                 'price' => $price,
                 'idcate' => $idcate
             ];
-            $this->insertPro->insertPro($data);
+            $this->productList->insertPro($data);
         }
     }
     public function delPro()
@@ -100,10 +99,5 @@ class AdHomeController extends BaseController
     {
         $this->data['users'] = $this->users->getAllUser();
         $this->renderViewAdmin("user", $this->data);
-    }
-    public function cate_get_all()
-    {
-        $this->data['categories'] = $this->category->getAllCate();
-        $this->renderViewAdmin("cate_list", $this->data);
     }
 }

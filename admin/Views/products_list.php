@@ -30,7 +30,7 @@
                         <th>Tên Sản Phẩm</th>
                         <th>Giá</th>
                         <th>Lượt xem</th>
-                        <th>Lượt bán</th>
+                        <!-- <th>Lượt bán</th> -->
                         <th>Thao tác</th>
                     </tr>
                 </thead>
@@ -48,7 +48,6 @@
                         <td><?= $name ?></td>
                         <td>$<?= $price ?></td>
                         <td><?= $view ?></td>
-                        <td>10</td>
                         <td class="action-icons">
                             <a href="index.php?page=editPro&edit=<?= $id ?>">Edit</a>
                             <a href="index.php?page=product&del=<?= $id ?>"

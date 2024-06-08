@@ -4,7 +4,7 @@
             <h2>Thêm Mới Danh Mục</h2>
             <form action="index.php?page=category" method="post" enctype="multipart/form-data">
                 <input type="text" name="name" placeholder="Tên danh mục">
-                <input type="file" name="img">
+                <input type="file" name="image">
                 <input type="submit" name="addCate" value="Thêm">
             </form>
         </div>
@@ -30,8 +30,8 @@
                               <td><img src="../public/uploads/' . $item['image'] . '" width="80px"></td>
                               <td>' . $item['name'] . '</td>
                               <td class="action-icons">
-                                 <a href="#">Edit</a>
-                                 <a href="index.php?page=product&del=' . $item['id'] . '">Delete</a>
+                                 <a href="index.php?page=editCate&edit=' . $item['id'] . '">Edit</a>
+                                 <a href="index.php?page=category&del=' . $item['id'] . '">Delete</a>
                               </td>
                            </tr>';
                     } ?>

@@ -41,7 +41,7 @@ class DataBaseModel
         $this->stmt->execute($params);
         return $this->conn->lastInsertId();
     }
-    public function delPro($sql, $params = [])
+    public function del($sql, $params = [])
     {
         $this->query($sql, $params);
     }

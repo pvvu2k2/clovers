@@ -17,11 +17,6 @@ class AdProductModel
         $sql = "SELECT * FROM products ORDER BY id DESC";
         return $this->db->getAll($sql);
     }
-    public function getAllCate()
-    {
-        $sql = "SELECT * FROM category";
-        return $this->db->getAll($sql);
-    }
     public function getIdPro($id)
     {
         $sql = "SELECT * FROM products WHERE id = " . $id;
@@ -36,7 +31,7 @@ class AdProductModel
     public function delPro($id)
     {
         $sql = "DELETE FROM products WHERE id = " . $id;
-        return $this->db->delPro($sql, [$id]);
+        return $this->db->del($sql, [$id]);
     }
     public function updatePro($data)
     {
