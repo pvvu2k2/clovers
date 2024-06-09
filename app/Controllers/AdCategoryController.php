@@ -4,9 +4,11 @@ class AdCategoryController extends BaseController
 {
     private $data;
     private $categories;
+    private $product;
     function __construct()
     {
         $this->categories = new AdCategoryModel();
+        $this->product = new ProductModel();
     }
     public function cate_get_all()
     {
@@ -31,13 +33,21 @@ class AdCategoryController extends BaseController
     }
     public function delCate()
     {
-        if (isset($_GET['del']) && ($_GET['del'] > 0)) {
+        if (isset($_GET['del']) && ($_GET['del'] > 0) && (is_numeric($_GET['del']))) {
             $del = $_GET['del'];
-            $data = $this->categories->getIdCate($del);
-            $target_file = "../public/uploads/" . $data['img'];
-            unlink($target_file);
-            $this->categories->delCate($del);
-            header("Location: index.php?page=category");
+            $products = $this->product->getAllIdPro("", $del, 0, 0);
+            if (count($products) > 0) {
+                echo '<script>alert("Không thể xóa danh mục vì có sản phẩm liên quan.")</script>';
+            } else {
+                $data = $this->categories->getIdCate($del);
+                $target_file = "../public/uploads/" . $data['image'];
+                if (file_exists($target_file)) {
+                    unlink($target_file);
+                }
+                $this->categories->delCate($del);
+            }
+            echo '<script>window.location.href="index.php?page=category";</script>';
+            exit();
         }
     }
     public function viewEditCate()
@@ -71,7 +81,7 @@ class AdCategoryController extends BaseController
             }
 
             $this->categories->updateCate($data);
-            echo '<script>location.href="index.php?page=category"</script>';
+            echo '<script>location.href="index.php?page=category"</>';
         }
     }
 }

@@ -22,19 +22,27 @@ class AdHomeController extends BaseController
         if (isset($_POST['addProduct']) && ($_POST['addProduct'])) {
             $name = $_POST['name'];
             $price = $_POST['price'];
+            $bestdeal = isset($_POST['bestdeal']) ? 1 : 0;
+            $bestseller = isset($_POST['bestseller']) ? 1 : 0;
             $idcate = $_POST['idcate'];
             $img = $_FILES['img']['name'];
 
-            $target_file = "../public/uploads/" . basename($img);
-            move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
+            if ($name && $price && $idcate && $img) {
+                $target_file = "../public/uploads/" . basename($img);
+                move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
 
-            $data = [
-                'name' => $name,
-                'img' => $img,
-                'price' => $price,
-                'idcate' => $idcate
-            ];
-            $this->productList->insertPro($data);
+                $data = [
+                    'name' => $name,
+                    'img' => $img,
+                    'price' => $price,
+                    'bestdeal' => $bestdeal,
+                    'bestseller' => $bestseller,
+                    'idcate' => $idcate
+                ];
+                $this->productList->insertPro($data);
+            } else {
+                echo "<script>alert('Vui lòng nhập đầy đủ thông tin!')</script>";
+            }
         }
     }
     public function delPro()
@@ -67,6 +75,8 @@ class AdHomeController extends BaseController
             $data['name'] = $_POST['name'];
             $data['price'] = $_POST['price'];
             $data['idcate'] = $_POST['idcate'];
+            $data['bestdeal'] = isset($_POST['bestdeal']) ? 1 : 0;
+            $data['bestseller'] = isset($_POST['bestseller']) ? 1 : 0;
             $data['img_old'] = $_POST['image_old'];
 
             if ($_FILES['img']['name'] != "") {

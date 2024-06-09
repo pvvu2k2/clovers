@@ -6,6 +6,8 @@
                 <input type="text" name="name" placeholder="Tên sản phẩm">
                 <input type="text" name="price" placeholder="Giá">
                 <input type="file" name="img">
+                <input type="checkbox" name="bestdeal">BestDeal
+                <input type="checkbox" name="bestseller">BestSeller<br><br>
                 <select name="idcate" id="idcate" style="padding: 10px; margin-bottom: 10px">
                     <option value="0">Chọn danh mục</option>
                     <?php
@@ -29,6 +31,8 @@
                         <th>Hình ảnh</th>
                         <th>Tên Sản Phẩm</th>
                         <th>Giá</th>
+                        <th>Bestdeal</th>
+                        <th>Bestseller</th>
                         <th>Lượt xem</th>
                         <!-- <th>Lượt bán</th> -->
                         <th>Thao tác</th>
@@ -41,22 +45,43 @@
                     foreach ($products as $item) {
                         extract($item);
                     ?>
-
-                    <tr>
-                        <td><?= $i++ ?></td>
-                        <td><img src="../public/uploads/<?= $img ?>" width="80px"></td>
-                        <td><?= $name ?></td>
-                        <td>$<?= $price ?></td>
-                        <td><?= $view ?></td>
-                        <td class="action-icons">
-                            <a href="index.php?page=editPro&edit=<?= $id ?>">Edit</a>
-                            <a href="index.php?page=product&del=<?= $id ?>"
-                                onclick="return confirm('Bạn có chắc sẽ xóa sản phẩm?')">Delete</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><?= $i++ ?></td>
+                            <td><img src="../public/uploads/<?= $img ?>" width="80px"></td>
+                            <td><?= $name ?></td>
+                            <td>$<?= $price ?></td>
+                            <td><?= $bestdeal ?></td>
+                            <td><?= $bestseller ?></td>
+                            <td><?= $view ?></td>
+                            <td class="action-icons">
+                                <a href="index.php?page=editPro&edit=<?= $id ?>">Edit</a>
+                                <a href="index.php?page=product&del=<?= $id ?>" onclick="return confirm('Bạn có chắc sẽ xóa sản phẩm?')">Delete</a>
+                            </td>
+                        </tr>
                     <?php } ?>
                 </tbody>
             </table>
+
+            <?php
+
+            $page = $_GET['page'];
+            echo $page;
+
+            ?>
+            <ul>
+                <li>
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">2</a>
+                </li>
+                <li>
+                    <a href="#">3</a>
+                </li>
+                <li>
+                    <a href="#">4</a>
+                </li>
+            </ul>
         </div>
     </div>
 </section>

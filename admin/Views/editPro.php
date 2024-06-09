@@ -4,6 +4,7 @@
         <?php
         $listcate = $data['listcate'];
         $pro_detail = $data['pro_detail'];
+        var_dump($pro_detail);
         foreach ($listcate as $item) {
             extract($item);
             if ($id == $pro_detail['idcate']) {
@@ -17,6 +18,8 @@
     <input type="text" name="name" value="<?= $pro_detail['name'] ?>" placeholder="Tên sản phẩm">
     <input type="text" name="price" value="<?= $pro_detail['price'] ?>" placeholder="Giá">
     <input type="file" name="img">
+    <input type="checkbox" name="bestdeal" value="1" <?= $pro_detail['bestdeal'] ? 'checked' : '' ?>>Bestdeal
+    <input type="checkbox" name="bestseller" value="1" <?= $pro_detail['bestseller'] ? 'checked' : '' ?>>Bestseller<br>
     <img src="../public/uploads/<?= $pro_detail['img'] ?>">
     <input type="hidden" name="image_old" value="<?= $pro_detail['img'] ?>">
     <input type="hidden" name="idpro" value="<?= $pro_detail['id'] ?>">

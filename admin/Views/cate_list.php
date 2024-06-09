@@ -25,16 +25,19 @@
                     $categories = $data['categories'];
                     $i = 1;
                     foreach ($categories as $item) {
-                        echo '<tr>
-                              <td>' . $i++ . '</td>
-                              <td><img src="../public/uploads/' . $item['image'] . '" width="80px"></td>
-                              <td>' . $item['name'] . '</td>
-                              <td class="action-icons">
-                                 <a href="index.php?page=editCate&edit=' . $item['id'] . '">Edit</a>
-                                 <a href="index.php?page=category&del=' . $item['id'] . '">Delete</a>
-                              </td>
-                           </tr>';
-                    } ?>
+                        extract($item);
+                    ?>
+                    <tr>
+                        <td><?= $i++ ?></td>
+                        <td><img src="../public/uploads/<?= $image ?>" width="80px"></td>
+                        <td><?= $name ?></td>
+                        <td class="action-icons">
+                            <a href="index.php?page=editCate&edit=<?= $id ?>">Edit</a>
+                            <a href="index.php?page=category&del=<?= $id ?>"
+                                onclick="return confirm('Bạn cón chắc sẽ xóa sản phẩm?')">Delete</a>
+                        </td>
+                    </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>

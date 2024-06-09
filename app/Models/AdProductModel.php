@@ -14,7 +14,7 @@ class AdProductModel
     }
     public function getAll()
     {
-        $sql = "SELECT * FROM products ORDER BY id DESC";
+        $sql = "SELECT * FROM products ORDER BY id DESC LIMIT 8";
         return $this->db->getAll($sql);
     }
     public function getIdPro($id)
@@ -24,8 +24,8 @@ class AdProductModel
     }
     public function insertPro($data)
     {
-        $sql = "INSERT INTO products(name, img, price, idcate) VALUES (?,?,?,?)";
-        $params = [$data['name'], $data['img'], $data['price'], $data['idcate']];
+        $sql = "INSERT INTO products(name, img, price, bestdeal, bestseller, idcate) VALUES (?,?,?,?,?,?)";
+        $params = [$data['name'], $data['img'], $data['price'], $data['bestdeal'], $data['bestseller'], $data['idcate']];
         return $this->db->insert($sql, $params);
     }
     public function delPro($id)
@@ -36,12 +36,14 @@ class AdProductModel
     public function updatePro($data)
     {
         $sql = "UPDATE products 
-            SET name = :name, img = :img, price = :price, idcate = :idcate
+            SET name = :name, img = :img, price = :price, bestdeal = :bestdeal, bestseller = :bestseller ,idcate = :idcate
             WHERE id = :id";
         $params = [
             ':name' => $data['name'],
             ':img' => $data['img'],
             ':price' => $data['price'],
+            ':bestdeal' => $data['bestdeal'],
+            ':bestseller' => $data['bestseller'],
             ':idcate' => $data['idcate'],
             ':id' => $data['id']
         ];

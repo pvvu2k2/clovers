@@ -52,7 +52,7 @@
 
 
 
-        <h1 class="text-most">Best Seller</h1>
+        <h1 class="text-most"><a href="index.php?page=allpro&bestseller=1">Best Seller</a></h1>
         <section class="lists">
             <section class="product-list">
                 <?php
@@ -115,15 +115,26 @@
                     extract($mostsearch);
                     $priceSale = $price * 0.9;
                 ?>
-                <section class="product">
-                    <a href="index.php?page=detail&id=<?= $id ?>"><img src="./public/uploads/<?= $img ?>"></a>
-                    <?php echo $html; ?>
-                    <div>
-                        <p class="name"><?= $name ?></p>
-                        <p class="price"><span>$</span><?= $price ?></p>
-                    </div>
-                    <a href="#" class="btn_addToCart">Add to Cart</a>
-                </section>
+                    <section class="product">
+                        <a href="index.php?page=detail&id=<?= $id ?>"><img src="./public/uploads/<?= $img ?>"></a>
+                        <?php echo $html; ?>
+                        <div>
+                            <p class="name"><?= $name ?></p>
+
+                            <?php
+                            if ($is_bestdeal) { ?>
+
+                                <p class="price"><span style="margin-right:20px; text-decoration: line-through;">$<?= $price ?></span>
+                                    $<?= $priceSale ?></p>
+
+                            <?php } else { ?>
+
+                                <p class="price">$<?= $price ?></p>
+                            <?php } ?>
+
+                        </div>
+                        <a href="#" class="btn_addToCart">Add to Cart</a>
+                    </section>
                 <?php } ?>
 
             </section>
