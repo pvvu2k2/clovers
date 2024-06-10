@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+ob_start();
+
 require_once "../app/Models/MainModel.php";
 require_once "../app/Controllers/MainController.php";
 
@@ -32,6 +35,10 @@ if (isset($_GET['page'])) {
         case "editCate":
             $categories = new AdCategoryController();
             $categories->viewEditCate();
+            break;
+        case "logout":
+            $user = new UserController();
+            $user->logoutAdmin();
             break;
         default:
             $home = new AdHomeController();

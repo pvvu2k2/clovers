@@ -1,0 +1,48 @@
+/* CSS cho form edit */
+section.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.login form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+
+}
+
+section.login form input,
+section.login form button {
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #959595;
+    width: calc(100% - 16px);
+}
+
+section.login form div {
+    display: flex;
+    flex-direction: column;
+}
+
+section.login form button {
+    background-color: #f4ebe0;
+    border: none;
+    cursor: pointer;
+}
+
+section.login form button a {
+    background-color: #fff;
+    text-decoration: none;
+    color: black;
+}
+
+.form h1 {
+    text-align: center;
+}
+
+.render {
+    text-align: center;
+    margin-top: 80px;
+}

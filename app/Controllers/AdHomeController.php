@@ -5,7 +5,6 @@ class AdHomeController extends BaseController
     private $data;
     private $productList;
     private $category;
-    private $insertPro;
     private $users;
     function __construct()
     {

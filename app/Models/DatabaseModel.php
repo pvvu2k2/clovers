@@ -31,7 +31,7 @@ class DataBaseModel
     {
         return $this->query($sql)->fetchAll();
     }
-    public function getOne($sql)
+    public function getOne($sql, $params = null)
     {
         return $this->query($sql)->fetch();
     }

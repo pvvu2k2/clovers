@@ -21,9 +21,25 @@
             <a href="#">
                 <i class="fa-solid fa-heart"></i>
             </a>
-            <a href="#">
-                <i class="fa-solid fa-circle-user"></i>
-            </a>
+
+            <?php
+            if (isset($_SESSION['user'])) {
+                echo '
+                        <a href="#" style="font-size: 20px; margin-right: 5px">' . $_SESSION['user']['username'] . '</a>
+                        <a href="index.php?page=logout" style="font-size: 20px">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </a>
+                    ';
+            } else {
+                echo '
+                    <a href="index.php?page=login">
+                        <i class="fa-solid fa-circle-user"></i>
+                    </a>
+                ';
+            }
+            ?>
+
+
             <a href="#">
                 <i class="fa-solid fa-cart-shopping"></i>
             </a>
