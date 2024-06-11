@@ -37,7 +37,7 @@ section.all-id-pro section.lists {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 900px;
+    /* width: 900px; */
 }
 
 section.all-id-pro section.lists section {

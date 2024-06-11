@@ -26,25 +26,25 @@ class UserModel
     }
 
 
-    public function delPro($id)
-    {
-        $sql = "DELETE FROM products WHERE id = " . $id;
-        return $this->db->del($sql, [$id]);
-    }
-    public function updatePro($data)
-    {
-        $sql = "UPDATE products 
-            SET name = :name, img = :img, price = :price, bestdeal = :bestdeal, bestseller = :bestseller ,idcate = :idcate
-            WHERE id = :id";
-        $params = [
-            ':name' => $data['name'],
-            ':img' => $data['img'],
-            ':price' => $data['price'],
-            ':bestdeal' => $data['bestdeal'],
-            ':bestseller' => $data['bestseller'],
-            ':idcate' => $data['idcate'],
-            ':id' => $data['id']
-        ];
-        return $this->db->insert($sql, $params);
-    }
+    // public function delPro($id)
+    // {
+    //     $sql = "DELETE FROM products WHERE id = " . $id;
+    //     return $this->db->del($sql, [$id]);
+    // }
+    // public function updatePro($data)
+    // {
+    //     $sql = "UPDATE products 
+    //         SET name = :name, img = :img, price = :price, bestdeal = :bestdeal, bestseller = :bestseller ,idcate = :idcate
+    //         WHERE id = :id";
+    //     $params = [
+    //         ':name' => $data['name'],
+    //         ':img' => $data['img'],
+    //         ':price' => $data['price'],
+    //         ':bestdeal' => $data['bestdeal'],
+    //         ':bestseller' => $data['bestseller'],
+    //         ':idcate' => $data['idcate'],
+    //         ':id' => $data['id']
+    //     ];
+    //     return $this->db->insert($sql, $params);
+    // }
 }

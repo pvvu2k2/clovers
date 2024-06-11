@@ -45,43 +45,26 @@
                     foreach ($products as $item) {
                         extract($item);
                     ?>
-                        <tr>
-                            <td><?= $i++ ?></td>
-                            <td><img src="../public/uploads/<?= $img ?>" width="80px"></td>
-                            <td><?= $name ?></td>
-                            <td>$<?= $price ?></td>
-                            <td><?= $bestdeal ?></td>
-                            <td><?= $bestseller ?></td>
-                            <td><?= $view ?></td>
-                            <td class="action-icons">
-                                <a href="index.php?page=editPro&edit=<?= $id ?>">Edit</a>
-                                <a href="index.php?page=product&del=<?= $id ?>" onclick="return confirm('Bạn có chắc sẽ xóa sản phẩm?')">Delete</a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td><?= $i++ ?></td>
+                        <td><img src="../public/uploads/<?= $img ?>" width="80px"></td>
+                        <td><?= $name ?></td>
+                        <td>$<?= $price ?></td>
+                        <td><?= $bestdeal ?></td>
+                        <td><?= $bestseller ?></td>
+                        <td><?= $view ?></td>
+                        <td class="action-icons">
+                            <a href="index.php?page=editPro&edit=<?= $id ?>">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="index.php?page=product&del=<?= $id ?>"
+                                onclick="return confirm('Bạn có chắc sẽ xóa sản phẩm?')">
+                                <i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
                     <?php } ?>
                 </tbody>
             </table>
-
-            <?php
-
-            $page = $_GET['page'];
-            echo $page;
-
-            ?>
-            <ul>
-                <li>
-                    <a href="#">1</a>
-                </li>
-                <li>
-                    <a href="#">2</a>
-                </li>
-                <li>
-                    <a href="#">3</a>
-                </li>
-                <li>
-                    <a href="#">4</a>
-                </li>
-            </ul>
         </div>
     </div>
 </section>

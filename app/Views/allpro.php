@@ -74,27 +74,27 @@
 
         ?>
 
-            <section>
-                <a href="index.php?page=detail&id=<?= $id ?>"><img src="./public/uploads/<?= $img ?>"></a>
-                <?php echo $html; ?>
-                <div>
-                    <p class="name"><?= $name ?></p>
+        <section>
+            <a href="index.php?page=detail&id=<?= $id ?>"><img src="./public/uploads/<?= $img ?>"></a>
+            <?php echo $html; ?>
+            <div>
+                <p class="name"><?= $name ?></p>
 
-                    <?php
+                <?php
                     if ($is_bestdeal) { ?>
 
-                        <p class="price"><span style="margin-right:20px; text-decoration: line-through;">$<?= $price ?></span>
-                            $<?= $priceSale ?></p>
+                <p class="price"><span style="margin-right:20px; text-decoration: line-through;">$<?= $price ?></span>
+                    $<?= $priceSale ?></p>
 
-                    <?php } else { ?>
+                <?php } else { ?>
 
-                        <p class="price">$<?= $price ?></p>
-                    <?php } ?>
+                <p class="price">$<?= $price ?></p>
+                <?php } ?>
 
 
-                </div>
-                <a href="#" class="btn_addToCart">Add to Cart</a>
-            </section>
+            </div>
+            <a href="#" class="btn_addToCart">Add to Cart</a>
+        </section>
 
         <?php } ?>
 

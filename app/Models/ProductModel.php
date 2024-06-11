@@ -29,7 +29,7 @@ class ProductModel
         $sql = "SELECT * FROM products WHERE idcate = $idcate AND id <> $idpro";
         return $this->db->getAll($sql);
     }
-    // hàm hiển thị tất cả sản phẩm khi click vào danh mục
+    // hàm hiển thị tất cả sản phẩm khi click vào danh mục và tìm kiếm sản phẩm
     public function getAllIdPro($kyw, $idcate, $bestdeal, $bestseller)
     {
         $sql = "SELECT * FROM products WHERE 1";

@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+a {
+    color: #000;
+    text-decoration: none;
+}
+
 header {
     display: flex;
     justify-content: space-around;
